@@ -7,5 +7,5 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using ssh key
-      run:  ssh -p 22 fwy13@192.168.1.6 echo fwy13 echo 130907
+    - name: executing
+      run: ssh ${{ secrets.KEY }}@${{ secrets.HOST }}
