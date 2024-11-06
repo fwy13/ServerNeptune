@@ -1,4 +1,4 @@
-name: Deply to server
+name: Deply to server.
 on:
   push:
     branches: [main]
