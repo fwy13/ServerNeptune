@@ -8,10 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@v1.1.0
-      with:
-        host: 192.168.1.6
-        username: fwy13
-        password: 130907
-        port: 22
-        script: whoami
+      run:  ssh -p 22 fwy13@192.168.1.6 echo fwy13 echo 130907
