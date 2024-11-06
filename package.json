@@ -1,0 +1,14 @@
+{
+  "name": "serverneptune",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "koa": "^2.15.3",
+    "koa-router": "^13.0.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  }
+}
