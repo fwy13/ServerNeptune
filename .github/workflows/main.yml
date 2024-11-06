@@ -9,7 +9,6 @@ jobs:
     steps:
     - name: executing
       run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.HOST }} > ~/.ssh/known_hosts
     - name: connect and pull
