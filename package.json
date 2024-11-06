@@ -3,7 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "tsc",
+    "start": "node index.js"
   },
   "dependencies": {
     "koa": "^2.15.3",
