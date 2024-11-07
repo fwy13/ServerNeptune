@@ -1,17 +1,25 @@
-name: Deply to server.
+name: Deploy
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+
 jobs:
-  build:
-    name: Build
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: executing
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
       run: |
+        mkdir -p ~/.ssh
         echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.HOST }} > ~/.ssh/known_hosts
-    - name: connect and pull
-      run: ssh fwy13@${{ secrets.HOST }}
-    - name: cleanup
-      run: rm -rf ~/.ssh
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H neptuneexam.ddns.net >> ~/.ssh/known_hosts
+
+    - name: Deploy to Server
+      run: |
+        ssh fwy13@neptuneexam.ddns.net ls
