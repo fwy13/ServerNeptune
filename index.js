@@ -1,5 +1,5 @@
-import Koa from "koa"
-import Router from "koa-router"
+import Koa from "koa";
+import Router from "koa-router";
 import * as Cheerio from "cheerio";
 
 const app = new Koa();
@@ -58,10 +58,17 @@ const getAnimeHome = (html) => {
     return listAnimeSlide;
 };
 
-
 router.get("/", async (ctx) => {
-    const res = await fetch("https://animevietsub.ink/").then(data => data.text());
+    const res = await fetch("https://animevietsub.ink/").then((data) =>
+        data.text()
+    );
     ctx.body = getAnimeHome(res);
-})
+});
+router.get("/anime", async (ctx) => {
+    const res = await fetch("https://animevietsub.ink/").then((data) =>
+        data.text()
+    );
+    ctx.body = res;
+});
 app.use(router.routes());
 app.listen(3000);
